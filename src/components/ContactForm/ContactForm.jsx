@@ -34,7 +34,7 @@ export const ContactForm = ({ onSubmit, contactsName }) => {
     );
 
     if (matchName) {
-      showError(`${name} is already in contacts`);
+      return showError(`${name} is already in contacts`);
     }
 
     const newContact = {

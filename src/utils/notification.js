@@ -9,4 +9,5 @@ export const showError = message =>
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
+    theme: 'dark',
   });
