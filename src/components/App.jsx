@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { ContactForm } from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
@@ -30,7 +33,7 @@ export const App = () => {
     setFilter(event.currentTarget.value);
   };
 
-  const getVisibleContacts = () => {
+  const getFilteredContacts = () => {
     const normalizeFilter = filter.toLowerCase();
 
     return contacts.filter(({ name }) =>
@@ -53,10 +56,11 @@ export const App = () => {
       <div className={style.contact_list_container}>
         <Filter value={filter} onChange={handleChangeFilter} />
         <ContactList
-          visibleContacts={getVisibleContacts()}
+          visibleContacts={getFilteredContacts()}
           onDeleteContact={handleDeleteContact}
         />
       </div>
+      <ToastContainer />
     </div>
   );
 };

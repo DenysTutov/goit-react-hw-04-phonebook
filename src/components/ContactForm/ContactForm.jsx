@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import { showError } from '../../utils/notification';
+
 import style from './ContactForm.module.scss';
 
 export const ContactForm = ({ onSubmit, contactsName }) => {
@@ -32,7 +34,7 @@ export const ContactForm = ({ onSubmit, contactsName }) => {
     );
 
     if (matchName) {
-      return alert(`${name} is already in contacts`);
+      showError(`${name} is already in contacts`);
     }
 
     const newContact = {
